@@ -1,6 +1,4 @@
 // Time complexity Preprocessing = O(n log n), Query = (log n)
-#include <bits/stdc++.h>
-using namespace std;
 
 typedef vector<int> vi;
 
