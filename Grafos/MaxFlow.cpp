@@ -1,6 +1,4 @@
 // Time complexity O(V^2 * E)
-#include <bits/stdc++.h>
-using namespace std;
 
 typedef long long ll;
 typedef tuple<int, ll, ll> edge;
@@ -65,7 +63,7 @@ class max_flow {
 		AL.assign(V, vi());
 	}
 
-	// Su se añade una arista bidireccional u<->v con peso w en el grafo de flujo,
+	// Si se añade una arista bidireccional u<->v con peso w en el grafo de flujo,
 	// asigna directed = false. El valor por defecto es true (Arista dirigida)
 	void add_edge(int u, int v, ll w, bool directed = true) {
 		if (u == v) return;                          // Por seguridad: Evita ciclos en el mismo nodo
