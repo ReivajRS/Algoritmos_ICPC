@@ -60,12 +60,12 @@ public:
     // Si se añade una arista bidireccional u<->v con peso w en el grafo de flujo,
 	// asigna directed = false. El valor por defecto es true (Arista dirigida)
     void add_edge(int u, int v, ll w, ll c, bool directed = true) {
-        if (u == v) return;                          // Por seguridad: Evita ciclos en el mismo nodo
-        EL.emplace_back(v, w, 0, c);                 // u->v, cap w, flow 0, cost c
-        AL[u].push_back(EL.size()-1);                // Para recordar el indice
-        EL.emplace_back(u, 0, 0, -c);                // Arista de regreso
-        AL[v].push_back(EL.size()-1);                // Para recordar el indice
-        if (!directed) add_edge(v, u, w, c);         // Añadir de nuevo en reversa
+        if (u == v) return;                         // Por seguridad: Evita ciclos en el mismo nodo
+        EL.emplace_back(v, w, 0, c);                // u->v, cap w, flow 0, cost c
+        AL[u].push_back(EL.size()-1);               // Para recordar el indice
+        EL.emplace_back(u, 0, 0, -c);               // Arista de regreso
+        AL[v].push_back(EL.size()-1);               // Para recordar el indice
+        if (!directed) add_edge(v, u, w, c, true);  // Añadir de nuevo en reversa
     }
 
     pair<ll, ll> mcmf(int s, int t) {
