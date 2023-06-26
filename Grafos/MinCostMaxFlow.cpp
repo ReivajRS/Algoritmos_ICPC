@@ -19,9 +19,9 @@ class min_cost_max_flow {
 		queue<int> q({s});
 		while (!q.empty()) {
 			int u = q.front(); q.pop(); vis[u] = 0;
-			for (auto &idx : AL[u]) {                  			// Explorar los vecinos de u
-				auto &[v, cap, flow, cost] = EL[idx];          	// Guardado en EL[idx]
-				if ((cap-flow > 0) && (d[v] > d[u] + cost)) {	// Arista residual positiva
+			for (auto &idx : AL[u]) {                           // Explorar los vecinos de u
+				auto &[v, cap, flow, cost] = EL[idx];           // Guardado en EL[idx]
+				if ((cap-flow > 0) && (d[v] > d[u] + cost)) {   // Arista residual positiva
 					d[v] = d[u]+cost;
 					if(!vis[v]) q.push(v), vis[v] = 1;
 				}
@@ -30,16 +30,16 @@ class min_cost_max_flow {
 		return d[t] != INF;		// Tiene un augmenting path
 	}
 
-    ll DFS(int u, int t, ll f = INF) {									// Ir de s->t
+    ll DFS(int u, int t, ll f = INF) {                                  // Ir de s->t
         if ((u == t) || (f == 0)) return f;
         vis[u] = 1;
-        for (int &i = last[u]; i < (int)AL[u].size(); ++i) {			// Desde la ultima arista
+        for (int &i = last[u]; i < (int)AL[u].size(); ++i) {            // Desde la ultima arista
             auto &[v, cap, flow, cost] = EL[AL[u][i]];
-            if (!vis[v] && d[v] == d[u]+cost) {							// En el grafo del nivel actual
+            if (!vis[v] && d[v] == d[u]+cost) {                         // En el grafo del nivel actual
                 if (ll pushed = DFS(v, t, min(f, cap-flow))) {
                     total_cost += pushed * cost;
                     flow += pushed;
-                    auto &[rv, rcap, rflow, rcost] = EL[AL[u][i]^1];	// Arista de regreso
+                    auto &[rv, rcap, rflow, rcost] = EL[AL[u][i]^1];    // Arista de regreso
                     rflow -= pushed;
                     vis[u] = 0;
                     return pushed;
