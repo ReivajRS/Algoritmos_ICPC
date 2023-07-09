@@ -17,7 +17,7 @@ typedef vector<int> vi;
 typedef vector<ii> vii;
 const ll MOD = 1e9+7, INF=1e18;
 
-ll gcd(ll a, ll b){return (b ? gcd(b, a % b) : a);}
+ll gcd(ll a, ll b){ return (b ? gcd(b, a % b) : a); }
 ll lcm(ll a, ll b){ if(!a || !b) return 0; return a * b / gcd(a, b); }
 
 void solve(){
