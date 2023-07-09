@@ -2,8 +2,8 @@
 //Pura gente del coach moy
 using namespace std;
 #define ENDL '\n'
-#define all(s) begin(s), end(s)
-#define rall(n) n.rbegin(), n.rend()
+#define all(x) x.begin(), x.end()
+#define rall(x) x.rbegin(), x.rend()
 #define FOR(x, b) for(int x = 0; x <b; x++)
 #define FORE(x, a, b) for(int x = a; x <= b; x++)
 #define FORR(x, a, b) for(int x = a; x >= b; x--)
