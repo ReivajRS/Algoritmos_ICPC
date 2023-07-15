@@ -65,23 +65,6 @@ class Trie {
     }
 };
 
-int main(){_
-    Trie T;
-	int n,m;
-    string s;
-	cin>>n;
-	FOR(i,n){
-		cin>>s;
-		T.insert(s);
-	}
-	cin>>m;
-	FOR(i,m){
-		cin>>s;
-		cout<<T.countPrefix(s)<<endl;
-	}
-    return 0;
-}
-
 int main(){
     Trie T;
     T.insert("harshita");
