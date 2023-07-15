@@ -1,49 +1,41 @@
 // Time complexity O(n + m)
-const int MAX_N = 200010;
-string T,P;
-int n, m;                                           // n = |T|, m = |P|
-int b[MAX_N];                                       // b = back table
+typedef vector<int> vi;
 
-void kmpPreprocess() {                              // Se llama esto primero
-    int i = 0, j = -1; b[0] = -1;                   // Valores iniciales
-    while (i < m) {                                 // Preprocesamiento de P
-        while ((j >= 0) && (P[i] != P[j])) j = b[j];// Diferente, reset j
-        ++i; ++j;                                   // Igual, avanzan ambos
+vi kmpPreprocess(string &P) {   // Preprocesamiento
+    int m = P.size();           // m = |P|
+    vi b(m + 1);                // b = Back table
+    int i = 0, j = -1; b[0] = -1;                       // Valores iniciales
+    while (i < m) {                                     // Preprocesamiento de P
+        while ((j >= 0) && (P[i] != P[j])) j = b[j];    // Diferente, reset j
+        ++i; ++j;                                       // Igual, avanzan ambos
         b[i] = j;
     }
+    return b;
 }
 
-int kmpSearch() {                                   // Similar a lo de arriba
+// T = Cadena donde se busca, P = Patron a buscar
+int kmpSearch(string &T, string &P) {                   // Busqueda del patron en la cadena
+    vi b = kmpPreprocess(P);
     int freq = 0;
-    int i = 0, j = 0;                               // Valores iniciales
-    while (i < n) {                                 // Buscar a traves de T
-        while ((j >= 0) && (T[i] != P[j])) j = b[j];// Diferente, reset j
-        ++i; ++j;                                   // Igual, avanzan ambos
-        if (j == m) {                               // Una coincidencia es encontrada
-        ++freq;
-        // printf("P is found at index %d in T\n", i-j);
-        j = b[j];                                   // Prepara j para la siguiente
+    int i = 0, j = 0;                                   // Valores iniciales
+    int n = T.size(), m = P.size();                     // n = |T|, m = |P|
+    while (i < n) {                                     // Buscar a traves de T
+        while ((j >= 0) && (T[i] != P[j])) j = b[j];    // Diferente, reset j
+        ++i; ++j;                                       // Igual, avanzan ambos
+        if (j == m) {                                   // Una coincidencia es encontrada
+            ++freq;
+            // printf("P se encuentra en el indice %d de T\n", i-j);
+            j = b[j];                                   // Prepara j para la siguiente
         }
     }
-    return freq;
+    return freq;    // Retorna el numero de coincidencias del patron en la cadena
 }
 
 int main() {
-    T="I DO NOT LIKE SEVENTY SEV BUT SEVENTY SEVENTY SEVEN";
-    P="SEVENTY SEVEN";
-    n=T.length();
-    m=P.length();
+    string T="I DO NOT LIKE SEVENTY SEV BUT SEVENTY SEVENTY SEVEN";
+    string P="SEVENTY SEVEN";
 
-    // Si el caracter de fin de la linea tambien se lee, descomentar
-    // T[n-1] = 0; n--; P[m-1] = 0; m--;
-
-    cout<<T<<'\n';
-    cout<<P<<'\n';
-    cout<<'\n';
-
-    printf("Knuth-Morris-Pratt, #match = ");
-    kmpPreprocess();
-    printf("%d\n", kmpSearch());
+    printf("Knuth-Morris-Pratt, #match = %d\n", kmpSearch(T, P));
     
     return 0;
 }
