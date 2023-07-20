@@ -14,6 +14,7 @@ int main(){
         }
         st.push(i);										// Se inserta la i-esima posicion en la pila
     }
+	
 	/*	Notas:
 		- Para obtener los mayores previos, se hace un for reverso
 		- Para obtener los menores, solo se invierte la segunda condicion en el ciclo while
