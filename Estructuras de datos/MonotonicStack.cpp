@@ -9,10 +9,10 @@ int main(){
 
     for(int i=0; i<n; i++){
         while(!st.empty() && arr[i] > arr[st.top()]){	// Mientras la pila no este vacia y el i-esimo elemento sea mayor al top
-            nextGreater[st.top()] = arr[i];			// El siguiente mayor del elemento en el top es el elemento en la i-esima posicion
+            nextGreater[st.top()] = arr[i];				// El siguiente mayor del elemento en el top es el elemento en la i-esima posicion
             st.pop();									// Se saca el elemento del top
         }
-        st.push(i);									// Se inserta la i-esima posicion en la pila
+        st.push(i);										// Se inserta la i-esima posicion en la pila
     }
 	/*	Notas:
 		- Para obtener los mayores previos, se hace un for reverso
