@@ -15,16 +15,16 @@ void tarjanSCC(int u) {
     visited[u] = 1;
     for (auto v : AL[u]) {
         if (dfs_num[v] == UNVISITED)
-          tarjanSCC(v);
+            tarjanSCC(v);
         if (visited[v])                              // Condicion de actualizacion
-          dfs_low[u] = min(dfs_low[u], dfs_low[v]);
+            dfs_low[u] = min(dfs_low[u], dfs_low[v]);
     }
 
     if (dfs_low[u] == dfs_num[u]) {                // Raiz o inicio de un SCC
         ++numSCC;                                    // Se aumenta el numero de SCC
         while (1) {
-          int v = St.top(); St.pop(); visited[v] = 0;
-          if (u == v) break;
+            int v = St.top(); St.pop(); visited[v] = 0;
+            if (u == v) break;
         }
     }
 }
