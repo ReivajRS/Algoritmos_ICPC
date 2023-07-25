@@ -4,15 +4,14 @@ typedef vector<int> vi;
 enum { UNVISITED = -1, VISITED = -2 };
 
 vector<vi> AL;
-vi dfs_num; 
-vi ts;
+vi dfs_num, ts;
 
 void toposort(int u) {
-  dfs_num[u] = VISITED;
-  for (auto &v : AL[u])
-    if (dfs_num[v] == UNVISITED)
-      toposort(v);
-  ts.push_back(u);                               // Este es el unico cambio con respecto a un DFS
+    dfs_num[u] = VISITED;
+    for (auto &v : AL[u])
+        if (dfs_num[v] == UNVISITED)
+            toposort(v);
+        ts.push_back(u);    // Este es el unico cambio con respecto a un DFS
 }
 
 int main() {
