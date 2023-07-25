@@ -7,43 +7,43 @@ using namespace std;
 typedef long long ll;
 typedef vector<int> vi;
 
-//Knapsack 2 - Problem from at coder dp educational contest 
-//Classical knapsack with W up to 1e9 
+//Knapsack 2 - Problem from at coder dp educational contest
+//Classical knapsack with W up to 1e9
 //Change the the definition of dp
 
 const ll INF = 1e18L + 5;
 
 int main(){ _
-  int n, w;
-  cin >> n >> w;
+    int n, w;
+    cin >> n >> w;
 
-  vi value(n);
-  vi weight(n);
-  int sum_values = 0; 
+    vi value(n);
+    vi weight(n);
+    int sum_values = 0;
 
-  FOR(i, n){
-    cin >> weight[i] >> value[i];
-    
-    sum_values += value[i];
-  }
-  
-  vector<ll> dp(sum_values + 1, INF); 
-  //dp[i] - minimum total weight of items with value i
-  dp[0] = 0; //if there no value there's no weight 
-  FOR(i, n){ //iterate over all items n
-    FORR(curr_value, sum_values - value[i], 0){//iterate from total values - value[i] to 0
-      dp[curr_value + value[i]] = min(dp[curr_value + value[i]], dp[curr_value] + weight[i]);
+    FOR(i, n){
+        cin >> weight[i] >> value[i];
+
+        sum_values += value[i];
     }
-  }
 
-  ll ans = 0;
-  //search the answer on dp table
-  FOR(i, sum_values + 1){
-    if(dp[i] <= w){
-      ans = max(ans, ll(i));
+    vector<ll> dp(sum_values + 1, INF);
+    //dp[i] - minimum total weight of items with value i
+    dp[0] = 0; //if there no value there's no weight
+    FOR(i, n){ //iterate over all items n
+        FORR(curr_value, sum_values - value[i], 0){//iterate from total values - value[i] to 0
+        dp[curr_value + value[i]] = min(dp[curr_value + value[i]], dp[curr_value] + weight[i]);
+        }
     }
-  }   
 
-  cout << ans << ENDL;
-  return 0;
+    ll ans = 0;
+    //search the answer on dp table
+    FOR(i, sum_values + 1){
+        if(dp[i] <= w){
+        ans = max(ans, ll(i));
+        }
+    }
+
+    cout << ans << ENDL;
+    return 0;
 }
