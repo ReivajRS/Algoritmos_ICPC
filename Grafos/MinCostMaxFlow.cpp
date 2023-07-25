@@ -6,29 +6,29 @@ typedef vector<ll> vll;
 const ll INF = 1e18;
 
 class min_cost_max_flow {
-	private:
-		int V;
-		ll total_cost;
-		vector<edge> EL;
-		vector<vi> AL;
-		vll d;
-		vi last, vis;
+ private:
+    int V;
+    ll total_cost;
+    vector<edge> EL;
+    vector<vi> AL;
+    vll d;
+    vi last, vis;
 
-	bool SPFA(int s, int t) {	// SPFA para encontrar un augmenting path en el grafo residual
-		d.assign(V, INF); d[s] = 0; vis[s] = 1;
-		queue<int> q({s});
-		while (!q.empty()) {
-			int u = q.front(); q.pop(); vis[u] = 0;
-			for (auto &idx : AL[u]) {                           // Explorar los vecinos de u
-				auto &[v, cap, flow, cost] = EL[idx];           // Guardado en EL[idx]
-				if ((cap-flow > 0) && (d[v] > d[u] + cost)) {   // Arista residual positiva
-					d[v] = d[u]+cost;
-					if(!vis[v]) q.push(v), vis[v] = 1;
-				}
-			}
-		}
-		return d[t] != INF;		// Tiene un augmenting path
-	}
+    bool SPFA(int s, int t) {	// SPFA para encontrar un augmenting path en el grafo residual
+        d.assign(V, INF); d[s] = 0; vis[s] = 1;
+        queue<int> q({s});
+        while (!q.empty()) {
+            int u = q.front(); q.pop(); vis[u] = 0;
+            for (auto &idx : AL[u]) {                           // Explorar los vecinos de u
+                auto &[v, cap, flow, cost] = EL[idx];           // Guardado en EL[idx]
+                if ((cap-flow > 0) && (d[v] > d[u] + cost)) {   // Arista residual positiva
+                    d[v] = d[u]+cost;
+                    if(!vis[v]) q.push(v), vis[v] = 1;
+                }
+            }
+        }
+        return d[t] != INF;		// Tiene un augmenting path
+    }
 
     ll DFS(int u, int t, ll f = INF) {                                  // Ir de s->t
         if ((u == t) || (f == 0)) return f;
@@ -50,7 +50,7 @@ class min_cost_max_flow {
         return 0;
     }
 
-public:
+ public:
     min_cost_max_flow(int initialV) : V(initialV), total_cost(0) {
         EL.clear();
         AL.assign(V, vi());
@@ -80,10 +80,10 @@ public:
 };
 
 int main() {
-	// Leer número de nodos(V), source(s), sink(t)
-	// De preferencia asignar s = 0, t = V-1
-	// min_cost_max_flow mf(V);
-	// Crear aristas usando el método add_edge(u, v, w, c);
+    // Leer número de nodos(V), source(s), sink(t)
+    // De preferencia asignar s = 0, t = V-1
+    // min_cost_max_flow mf(V);
+    // Crear aristas usando el método add_edge(u, v, w, c);
 
-	return 0;
+    return 0;
 }
