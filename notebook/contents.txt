@@ -1,0 +1,62 @@
+# Any line followed by a '#' character is ignored
+# Section headings must be in square brackets
+# Subsections within a section should follow the format:
+#   [filename within code directory][tab character \t][subsection title]
+
+[Template]
+templates/Cases.cpp	Template C++
+
+[Math]
+math/ModPow_Inverse.cpp	Fast pow - inverse with mod
+math/Primes.cpp	Primes
+math/Bits.cpp	Bit operations
+math/Matrix.cpp	Matrix multiplication and exponentation
+math/Binomial_Coefficient.cpp	Binamial coefficient
+math/Catalan.py	Catalan numbers
+
+[Data structure]
+data-structure/UnionFind.cpp	Union find (DSU)
+data-structure/UnionFind_Rollback.cpp	Union find (DSU) with rollback
+data-structure/MonotonicStack.cpp	Monotonic stack
+data-structure/BIT.cpp	Binary indexed tree
+data-structure/FenwickTree.cpp	Fenwick tree
+data-structure/SegmentTree/SegmentTree.cpp	Segmente tree
+data-structure/SegmentTree/SegmentTreeLazy.cpp	Segmente tree with lazy propagation
+data-structure/SegmentTree/LazyRMQ.cpp	Segmente tree RMQ with lazy propagation
+data-structure/SegmentTree/ST_UF_Rollback.cpp	Segment tree of DSU with rollback
+data-structure/SparseTable.cpp	Sparse table
+data-structure/OrderStatisticsTree.cpp	Order statistics tree
+data-structure/BST.cpp	Binary search tree
+
+[Graphs]
+graphs/GraphTraversal.cpp	Graph traversal
+graphs/ShortestPath/Dijkstra.cpp	Dijkstra
+graphs/ShortestPath/BellmanFord.cpp	Bellman-Ford
+graphs/ShortestPath/FloydWarshall.cpp	Floyd-Warshal
+graphs/TopologicalSort/TopologicalSort.cpp	Topological sort
+graphs/TopologicalSort/LexicographicTopologicalSort.cpp	Lexicographic graphs/topological sort
+graphs/MST/Prim.cpp	Prim
+graphs/MST/Kruskal.cpp	Kruskal
+graphs/Tarjan.cpp	Tarjan
+graphs/Kosaraju.cpp	Kosaraju
+graphs/BridgesAndArticulation.cpp	Bridges and articulation points
+graphs/2SAT.cpp	2 SAT
+graphs/LCA.cpp	Lowest common ancestor
+graphs/MaxFlow.cpp	Max-flow (Dinic)
+graphs/MinCostMaxFlow.cpp	Min-cost max-flow
+graphs/Kuhn.cpp	Kuhn BPM
+
+[Strings]
+strings/KnuthMorrisPratt.cpp	Knuth Morris Pratt (KMP)
+strings/Trie.cpp	Trie
+strings/Hashing.cpp	Hashing
+strings/AhoCorasick.cpp	Aho-Corasick
+
+[Dynamic programming]
+dynamic-programming/Knapsack.cpp	Knapsack
+dynamic-programming/Knapsack_2.cpp	Knapsack 2
+dynamic-programming/LIS.cpp	Longest increasing subsequence
+dynamic-programming/DigitDP/SumDigitsInARange.cpp	Sum of digits in a range
+dynamic-programming/DigitDP/Enigma_Regional2017.cpp	Enigma regional 2017
+dynamic-programming/BitmaskDP/LittleElephantAndTShirts_CodeChef.cpp	Little elephant and T shirts - CodeChef
+dynamic-programming/BitmaskDP/O_Matching_AtCoder.cpp	O-Matching AtCoder
