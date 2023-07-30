@@ -7,12 +7,12 @@
 templates/Cases.cpp	Template C++
 
 [Math]
-math/ModPow_Inverse.cpp	Fast pow - inverse with mod
+math/ModPow_Inverse.cpp	Mod Pow-Inverse
 math/Primes.cpp	Primes
 math/Bits.cpp	Bit operations
-math/Matrix.cpp	Matrix multiplication and exponentation
-math/Binomial_Coefficient.cpp	Binamial coefficient
+math/Binomial_Coefficient.cpp	Binomial coefficients
 math/Catalan.py	Catalan numbers
+math/Matrix.cpp	Matrix multiplication and exponentation
 
 [Data structure]
 data-structure/UnionFind.cpp	Union find (DSU)
@@ -20,9 +20,9 @@ data-structure/UnionFind_Rollback.cpp	Union find (DSU) with rollback
 data-structure/MonotonicStack.cpp	Monotonic stack
 data-structure/BIT.cpp	Binary indexed tree
 data-structure/FenwickTree.cpp	Fenwick tree
-data-structure/SegmentTree/SegmentTree.cpp	Segmente tree
-data-structure/SegmentTree/SegmentTreeLazy.cpp	Segmente tree with lazy propagation
-data-structure/SegmentTree/LazyRMQ.cpp	Segmente tree RMQ with lazy propagation
+data-structure/SegmentTree/SegmentTree.cpp	Segment tree
+data-structure/SegmentTree/SegmentTreeLazy.cpp	Segment tree with lazy propagation
+data-structure/SegmentTree/LazyRMQ.cpp	Segment tree RMQ with lazy propagation
 data-structure/SegmentTree/ST_UF_Rollback.cpp	Segment tree of DSU with rollback
 data-structure/SparseTable.cpp	Sparse table
 data-structure/OrderStatisticsTree.cpp	Order statistics tree
@@ -34,7 +34,7 @@ graphs/ShortestPath/Dijkstra.cpp	Dijkstra
 graphs/ShortestPath/BellmanFord.cpp	Bellman-Ford
 graphs/ShortestPath/FloydWarshall.cpp	Floyd-Warshal
 graphs/TopologicalSort/TopologicalSort.cpp	Topological sort
-graphs/TopologicalSort/LexicographicTopologicalSort.cpp	Lexicographic graphs/topological sort
+graphs/TopologicalSort/LexicographicTopologicalSort.cpp	Lexicographic topological sort
 graphs/MST/Prim.cpp	Prim
 graphs/MST/Kruskal.cpp	Kruskal
 graphs/Tarjan.cpp	Tarjan
@@ -48,8 +48,8 @@ graphs/Kuhn.cpp	Kuhn BPM
 
 [Strings]
 strings/KnuthMorrisPratt.cpp	Knuth Morris Pratt (KMP)
-strings/Trie.cpp	Trie
 strings/Hashing.cpp	Hashing
+strings/Trie.cpp	Trie
 strings/AhoCorasick.cpp	Aho-Corasick
 
 [Dynamic programming]
