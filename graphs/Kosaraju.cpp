@@ -1,5 +1,5 @@
 /*
-Busqueda de componentes fuertemente conexos (Grafo dirigido) - Kosaraju O(V + E)
+Descripcion: Busqueda de componentes fuertemente conexos (Grafo dirigido) - Kosaraju O(V + E)
 Un SCC se define de la siguiente manera: si elegimos cualquier par de vertices u y v
 en el SCC, podemos encontrar un camino de u a v y viceversa
 
@@ -10,10 +10,7 @@ transpuesto a partir del orden topologico para hallar los SCC
 Source: CPH4 Steven Halim
 */
 
-vi graph[MAXN];    // Grafo
-vi graph_T[MAXN];  // Grafo transpuesto
-vi dfs_num;
-vi S;
+vi graph[MAXN], graph_T[MAXN], dfs_num, S;
 int n, numSCC;
 
 void Kosaraju(int u, int pass) { //pass = 1 (original), 2 (transpose)

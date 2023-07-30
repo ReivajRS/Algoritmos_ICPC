@@ -1,4 +1,5 @@
 // Time complexity O(n*m)
+// Source: CP algorithms
 typedef vector<int> vi;
 
 int n, k;           // #Nodos en la primera parte del grafo(n), #Nodos en la segunda parte del grafo(k)
