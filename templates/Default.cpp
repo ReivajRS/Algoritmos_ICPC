@@ -2,9 +2,10 @@
 //Pura gente del coach moy
 using namespace std;
 #define ENDL '\n'
-#define all(x) x.begin(), x.end()
+#define all(x)  x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
-#define FOR(x, b) for(int x = 0; x <b; x++)
+#define sz(x)   (int) x.size()
+#define FOR(x, b)     for(int x = 0; x <b; x++)
 #define FORE(x, a, b) for(int x = a; x <= b; x++)
 #define FORR(x, a, b) for(int x = a; x >= b; x--)
 #define deb(x)      cerr << #x << " = " << x << '\n';
@@ -15,19 +16,9 @@ typedef unsigned long long ull;
 typedef pair<int,int> ii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
-const ll MOD = 1e9+7, INF=1e18;
-
-ll gcd(ll a, ll b){ return (b ? gcd(b, a % b) : a); }
-ll lcm(ll a, ll b){ if(!a || !b) return 0; return a * b / gcd(a, b); }
-
-void solve(){
-    
-}
+const ll MOD = 1e9+7, INF = 1e18;
 
 int main(){_
-    int tc;
-    cin>>tc;
-    while(tc--)
-        solve();
+    
     return 0;
 }
