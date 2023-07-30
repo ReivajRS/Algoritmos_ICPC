@@ -24,7 +24,7 @@ int main() {
     }
 
     bool hasNegativeCycle = false;
-    for (int u = 0; u < V; ++u)                     // Una pasada más para verificar
+    for (int u = 0; u < V; ++u)                     // Una pasada mas para verificar
         if (dist[u] != INF)
             for (auto &[v, w] : AL[u])
                 if (dist[v] > dist[u]+w)            // Debe ser falso

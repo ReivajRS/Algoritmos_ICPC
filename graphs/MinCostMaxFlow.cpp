@@ -57,7 +57,7 @@ class min_cost_max_flow {
         vis.assign(V, 0);
     }
 
-    // Si se añade una arista bidireccional u<->v con peso w en el grafo de flujo,
+    // Si se agrega una arista bidireccional u<->v con peso w en el grafo de flujo,
 	// asigna directed = false. El valor por defecto es true (Arista dirigida)
     void add_edge(int u, int v, ll w, ll c, bool directed = true) {
         if (u == v) return;                         // Por seguridad: Evita ciclos en el mismo nodo
@@ -65,13 +65,13 @@ class min_cost_max_flow {
         AL[u].push_back(EL.size()-1);               // Para recordar el indice
         EL.emplace_back(u, 0, 0, -c);               // Arista de regreso
         AL[v].push_back(EL.size()-1);               // Para recordar el indice
-        if (!directed) add_edge(v, u, w, c, true);  // Añadir de nuevo en reversa
+        if (!directed) add_edge(v, u, w, c, true);  // Agregar de nuevo en reversa
     }
 
     pair<ll, ll> mcmf(int s, int t) {
         ll mf = 0;                                   // mf = Max flow
         while (SPFA(s, t)) {                         // Time complexity O(V^2*E)
-            last.assign(V, 0);                       // Aceleración importante
+            last.assign(V, 0);                       // Aceleracion importante
             while (ll f = DFS(s, t))                 // exhaust blocking flow
                 mf += f;
         }
@@ -80,10 +80,10 @@ class min_cost_max_flow {
 };
 
 int main() {
-    // Leer número de nodos(V), source(s), sink(t)
+    // Leer numero de nodos(V), source(s), sink(t)
     // De preferencia asignar s = 0, t = V-1
     // min_cost_max_flow mf(V);
-    // Crear aristas usando el método add_edge(u, v, w, c);
+    // Crear aristas usando el metodo add_edge(u, v, w, c);
 
     return 0;
 }

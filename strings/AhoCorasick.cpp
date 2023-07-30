@@ -1,4 +1,4 @@
-// Implementación de Aho-Corasick y Aho-Corasick dinámico
+// Implementacion de Aho-Corasick y Aho-Corasick dinamico
 
 typedef pair<int, int> ii;
 typedef vector<int> vi;

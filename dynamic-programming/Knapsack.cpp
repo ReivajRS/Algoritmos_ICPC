@@ -12,7 +12,7 @@ int mochila (int i , int libre ) {
     int tomar = valor [ i ] + mochila ( i - 1 , libre - peso [ i ]) ;
     //Si no tomamos el item
     int noTomar = mochila ( i - 1 , libre ) ;
-    //Devolvemos el máximo (y lo guardamos en la matriz dp)
+    //Devolvemos el maximo (y lo guardamos en la matriz dp)
     return ( dp [ i ][ libre ] = max ( tomar , noTomar ) ) ;
 }
 int main(){

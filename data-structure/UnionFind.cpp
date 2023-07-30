@@ -19,10 +19,10 @@ class UnionFind {                                   // Estilo POO
     void unionSet(int i, int j) {
         if (isSameSet(i, j)) return;                // i y j estan en el mismo set
         int x = findSet(i), y = findSet(j);         // Encuentra los representantes de ambos
-        if (rank[x] > rank[y]) swap(x, y);          // Para mantener x más pequeño que y
+        if (rank[x] > rank[y]) swap(x, y);          // Para mantener x mas pequenio que y
         p[x] = y;                                   // Set x bajo y
         if (rank[x] == rank[y]) ++rank[y];          // Acelaracion opcional
-        setSize[y] += setSize[x];                   // Combina los tamaños de los sets en y
+        setSize[y] += setSize[x];                   // Combina los tamanios de los sets en y
         --numSets;                                  // Una union reduce el numSets
     }
 };

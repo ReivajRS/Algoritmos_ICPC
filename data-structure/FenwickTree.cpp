@@ -13,9 +13,9 @@ class FenwickTree {                                 // El indice 0 no se usa
         int m = (int)f.size()-1;                    // Nota: f[0] siempre es 0
         ft.assign(m+1, 0);
         for (int i = 1; i <= m; ++i) {              // O(m)
-            ft[i] += f[i];                          // Añade este valor
+            ft[i] += f[i];                          // Agrega este valor
             if (i+LSOne(i) <= m)                    // i tiene padre
-                ft[i+LSOne(i)] += ft[i];            // Se añade al padre
+                ft[i+LSOne(i)] += ft[i];            // Se agrega al padre
         }
     }
 
@@ -23,7 +23,7 @@ class FenwickTree {                                 // El indice 0 no se usa
 
     FenwickTree(int m, const vi &s) {               // Crea un FT basado en s
         vll f(m+1, 0);
-        for (int i = 0; i < (int)s.size(); ++i)     // Se hace la conversión primero
+        for (int i = 0; i < (int)s.size(); ++i)     // Se hace la conversion primero
             ++f[s[i]];                              // En O(n)
         build(f);                                   // En O(m)
     }

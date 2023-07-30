@@ -59,7 +59,7 @@ struct QueryTree {              // Struct de un segment tree para resolver las q
         t.resize(4 * T + 4);
     }
 
-    void add_to_tree(int v, int l, int r, int ul, int ur, query& q) {   // Metodo para añadir una query al tree
+    void add_to_tree(int v, int l, int r, int ul, int ur, query& q) {   // Metodo para agregar una query al tree
         if (ul > ur)
             return;
         if (l == ul && r == ur) {
@@ -71,7 +71,7 @@ struct QueryTree {              // Struct de un segment tree para resolver las q
         add_to_tree(2 * v + 1, mid + 1, r, max(ul, mid + 1), ur, q);
     }
 
-    // Las queries se añaden de la manera UF.add_query(query(v, u), l, r)
+    // Las queries se agregan de la manera UF.add_query(query(v, u), l, r)
     // Donde v y u son los elementos a unir, mientras que l y r representan el rango de tiempo en el que estan unidos
     void add_query(query q, int l, int r) {
         add_to_tree(1, 0, T - 1, l, r, q);
@@ -102,8 +102,8 @@ struct QueryTree {              // Struct de un segment tree para resolver las q
 int main(){
     // Ejemplo de uso
     QueryTree UF(5,5);                  // Se crea el segment tree para resolver las queries
-    UF.add_query(query(0, 1), 2, 3);    // Se añade una querie indicando que los elementos v=0 y u=1 estan unidos desde t=2 hasta t=3
-    UF.add_query(query(2, 3), 1, 4);    // Se añade una querie indicando que los elementos v=2 y u=3 estan unidos desde t=1 hasta t=4
+    UF.add_query(query(0, 1), 2, 3);    // Se agrega una querie indicando que los elementos v=0 y u=1 estan unidos desde t=2 hasta t=3
+    UF.add_query(query(2, 3), 1, 4);    // Se agrega una querie indicando que los elementos v=2 y u=3 estan unidos desde t=1 hasta t=4
     vi res = UF.solve();                // Se llama el metodo para resolver las queries
     for(auto u : res)
         cout<<u<<" ";  // Se imprime 5 4 3 3 4, representando el numero de disjoint sets en cada instante de tiempo

@@ -52,7 +52,7 @@ class max_flow {
         AL.assign(V, vi());
     }
 
-    // Si se añade una arista bidireccional u<->v con peso w en el grafo de flujo,
+    // Si se agrega una arista bidireccional u<->v con peso w en el grafo de flujo,
     // asigna directed = false. El valor por defecto es true (Arista dirigida)
     void add_edge(int u, int v, ll w, bool directed = true) {
         if (u == v) return;                          // Por seguridad: Evita ciclos en el mismo nodo
@@ -65,7 +65,7 @@ class max_flow {
     ll dinic(int s, int t) {
         ll mf = 0;                      // mf = Max flow
         while (BFS(s, t)) {             // Time complexity O(V^2*E)
-            last.assign(V, 0);          // Aceleración importante
+            last.assign(V, 0);          // Aceleracion importante
             while (ll f = DFS(s, t))    // exhaust blocking flow
                 mf += f;
         }
@@ -74,10 +74,10 @@ class max_flow {
 };
 
 int main() {
-    // Leer número de nodos(V), source(s), sink(t)
+    // Leer numero de nodos(V), source(s), sink(t)
     // De preferencia asignar s = 0, t = V-1
     // max_flow mf(V);
-    // Crear aristas usando el método add_edge(u, v, w);
+    // Crear aristas usando el metodo add_edge(u, v, w);
 
   return 0;
 }

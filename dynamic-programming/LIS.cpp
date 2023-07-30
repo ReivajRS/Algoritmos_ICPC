@@ -1,7 +1,7 @@
 // Time complexity O(n log k)
 typedef vector<int> vi;
 
-int n;  // Tamaño del vector
+int n;  // tamanio del vector
 vi A;   // Vector original
 vi p;   // Vector de predecesor
 

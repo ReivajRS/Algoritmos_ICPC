@@ -1,5 +1,5 @@
-// Union-Find Disjoint-set con la operación de deshacer una uniones previas y regresar a un tiempo "t"
-// Si no es necesaria esta operación, eliminar st, time() y rollback()
+// Union-Find Disjoint-set con la operacion de deshacer una uniones previas y regresar a un tiempo "t"
+// Si no es necesaria esta operacion, eliminar st, time() y rollback()
 // Time complexity O(log n)
 typedef vector<int> vi;
 typedef pair<int, int> ii;
@@ -33,8 +33,8 @@ int main(){
     // Ejemplo de uso
     RollbackUF UF(5);       // Creacion del DSU
     UF.join(0, 1);          // Union de los elementos 0 y 1
-    cout<<UF.size(0)<<ENDL; // Ahora el tamaño del set del elemento 0 es 2
+    cout<<UF.size(0)<<ENDL; // Ahora el tamanio del set del elemento 0 es 2
     UF.rollback(0);         // Regresar al tiempo 0
-    cout<<UF.size(0)<<ENDL; // Ahora el tamaño del set del elemento 0 es 1 de nuevo, porque se deshizo el cambio
+    cout<<UF.size(0)<<ENDL; // Ahora el tamanio del set del elemento 0 es 1 de nuevo, porque se deshizo el cambio
     return 0;
 }

@@ -20,7 +20,7 @@ const ll MOD = 1e9+7, INF=1e18;
 //Problema: Encoding-CodeChef
 //Descripcion: Encontrar la suma de las funciones f(x), donde x son los numeros en un rango de L...R. Donde R puede ser hasta 10^100000
 //El resultado de la f(x) se calcula dividiendo un numero en partes donde los numeros contiguos sean los mismos y se agrega el valor del numero
-//multiplicado por 10^pos, donde pos es la posicion más a la izquierda de los numeros contiguos. Se suman todos los valores de estos numeros contiguos.
+//multiplicado por 10^pos, donde pos es la posicion mas a la izquierda de los numeros contiguos. Se suman todos los valores de estos numeros contiguos.
 //Se calcula f(x) para todos los numeros en el rango L...R, aplicando modulo 10^9+7
 
 const int MAXN=100001;

@@ -20,8 +20,8 @@ struct TwoSat {
 
     int addVar() { adj.emplace_back(); adj.emplace_back(); return N++; }    // Opcional
 
-    // Añade una disyuncion
-    void either(int x, int y) { // Nota: (a ∨ b), es equivalente a la expresion (¬a -> b) ∧ (¬b -> a)
+    // Agrega una disyuncion
+    void either(int x, int y) { // Nota: (a v b), es equivalente a la expresion (~a -> b) n (~b -> a)
         x = max(2*x, -1-2*x), y = max(2*y, -1-2*y);
         adj[x].push_back(y^1), adj[y].push_back(x^1);
     }

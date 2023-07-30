@@ -6,7 +6,7 @@ int n, k;           // #Nodos en la primera parte del grafo(n), #Nodos en la seg
 vector<vi> adj;     // Lista de adyacencia del grafo
 vi mt;              // Conexiones del bm, donde mt[i] es el nodo de la primera parte conectado al nodo i de la segunda parte
 vector<bool> used;  // Vector de visitados para el dfs
-int maxMatch = 0;   // Tamaño del max matching
+int maxMatch = 0;   // tamanio del max matching
 
 bool try_kuhn(int v) {
     if (used[v])
