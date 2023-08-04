@@ -1,15 +1,14 @@
 // Time complexity O(V+E)
-typedef pair<int, int> ii;
 typedef vector<int> vi;
-enum { UNVISITED = -1, VISITED = -2 };
 
 vector<vi> AL;
-vi dfs_num, ts;
+vector<bool> visited;
+vi ts;
 
 void toposort(int u) {
-    dfs_num[u] = VISITED;
+    visited[u] = 1;
     for (auto &v : AL[u])
-        if (dfs_num[v] == UNVISITED)
+        if (!visited[v])
             toposort(v);
     ts.push_back(u);    // Este es el unico cambio con respecto a un DFS
 }
@@ -19,11 +18,11 @@ int main() {
     // Numero de nodos(V), numero de aristas(E)
     AL.assign(V, vi());
 
-    dfs_num.assign(V, UNVISITED);
+    visited.assign(V, 0);
     ts.clear();
     for (int u = 0; u < V; ++u)                    // Igual que para encontrar los CCs
-        if (dfs_num[u] == UNVISITED)
-        toposort(u);
+        if (!visited[u])
+            toposort(u);
 
     printf("Topological sort: \n");
     reverse(ts.begin(), ts.end());                 // Invertir ts o imprimir al reves
