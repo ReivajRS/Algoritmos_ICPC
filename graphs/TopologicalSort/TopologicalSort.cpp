@@ -11,7 +11,7 @@ void toposort(int u) {
     for (auto &v : AL[u])
         if (dfs_num[v] == UNVISITED)
             toposort(v);
-        ts.push_back(u);    // Este es el unico cambio con respecto a un DFS
+    ts.push_back(u);    // Este es el unico cambio con respecto a un DFS
 }
 
 int main() {
