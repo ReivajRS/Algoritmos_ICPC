@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 const double INF = 1e9, EPS = 1e-9;
 
 double DEG_to_RAD(double d) { return d*M_PI/180.0; }
