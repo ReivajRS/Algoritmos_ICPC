@@ -24,7 +24,6 @@ struct point {      // Punto con coordenadas de valores reales
 };
 
 double dist(point p1, point p2) {                   // Distancia euclidiana
-    // hypot(dx, dy) returns sqrt(dx*dx + dy*dy)
     return hypot(p1.x-p2.x, p1.y-p2.y);
 }
 
@@ -46,21 +45,19 @@ void pointsToLine(point p1, point p2, line &l) {
     }
 }
 
-bool areParallel(line l1, line l2) {             // Checa a & b
+bool areParallel(line l1, line l2) {             // Checa si 2 lineas son paralelas
     return (fabs(l1.a-l2.a) < EPS) && (fabs(l1.b-l2.b) < EPS);
 }
 
-bool areSame(line l1, line l2) {                 // Tambien checa c
+bool areSame(line l1, line l2) {                 // Checa si 2 lineas son iguales
     return areParallel(l1 ,l2) && (fabs(l1.c-l2.c) < EPS);
 }
 
 // Retorna true y el punto de intereseccion p, si 2 lineas se intersecan
 bool areIntersect(line l1, line l2, point &p) {
-    if (areParallel(l1, l2)) return false;         // No hay interseccion
-    // Resuelve un sistema de 2 ecuaciones lineales con 2 incognitas
-    p.x = (l2.b*l1.c - l1.b*l2.c) / (l2.a*l1.b - l1.a*l2.b);
-    // Caso especial: prueba si es linea vertical para evitar la division entre 0
-    if (fabs(l1.b) > EPS) p.y = -(l1.a*p.x + l1.c);
+    if (areParallel(l1, l2)) return false;
+    p.x = (l2.b*l1.c - l1.b*l2.c) / (l2.a*l1.b - l1.a*l2.b);    // Resuelve un sistema de 2 ecuaciones lineales con 2 incognitas
+    if (fabs(l1.b) > EPS) p.y = -(l1.a*p.x + l1.c);             // Caso especial: prueba si es linea vertical para evitar la division entre 0
     else                  p.y = -(l2.a*p.x + l2.c);
     return true;
 }
@@ -78,26 +75,26 @@ point translate(const point &p, const vec &v) { return point(p.x+v.x, p.y+v.y); 
 
 // Convierte un punto y una pendiente en una linea
 void pointSlopeToLine(point p, double m, line &l) {
-    l.a = -m;                                      // Siempre -m
-    l.b = 1;                                       // Siempre 1
-    l.c = -((l.a * p.x) + (l.b * p.y));            // Se calcula esto
+    l.a = -m;
+    l.b = 1;
+    l.c = -((l.a * p.x) + (l.b * p.y));
 }
 
+// Obtiene el punto mas cercano entre una linea y un punto
 void closestPoint(line l, point p, point &ans) {
-    // Esta linea es perpendicular a l y pasa a traves de p
-    line perpendicular;                            
-    if (fabs(l.b) < EPS) {                         // Linea vertical
+    line perpendicular;                             // Esta linea es perpendicular a l y pasa a traves de p
+    if (fabs(l.b) < EPS) {                          // Linea vertical
         ans.x = -(l.c);
         ans.y = p.y;
         return;
     }
-    if (fabs(l.a) < EPS) {                         // Linea horizontal
+    if (fabs(l.a) < EPS) {                          // Linea horizontal
         ans.x = p.x;
         ans.y = -(l.c);
         return;
     }
-    pointSlopeToLine(p, 1/l.a, perpendicular);     // Linea normal
-    // Se interseca la linea l con esta linea perpendicular y el punto de interseccion es el punto mas cercano
+    pointSlopeToLine(p, 1/l.a, perpendicular);      // Linea normal
+    // Interseca l con esta linea perpendicular y el punto de interseccion es el punto mas cercano
     areIntersect(l, perpendicular, ans);
 }
 
@@ -115,10 +112,11 @@ double dot(vec a, vec b) { return (a.x*b.x + a.y*b.y); }
 // Retorna el cuadrado de la magnitud de un vector
 double norm_sq(vec v) { return v.x*v.x + v.y*v.y; }
 
+// Regresa el angulo (en radianes) formado entre 2 vectores formados por 3 puntos
 double angle(const point &a, const point &o, const point &b) {
     vec oa = toVec(o, a), ob = toVec(o, b);        // a != o != b
     return acos(dot(oa, ob) / sqrt(norm_sq(oa) * norm_sq(ob)));
-}                                                // Angulo aob en radianes
+}
 
 // Retorna la distancia desde un punto p a una linea definida por 2 punto a & b (deben ser diferentes)
 // El punto mas cercano se guarda en el punto c
@@ -126,8 +124,8 @@ double distToLine(point p, point a, point b, point &c) {
     vec ap = toVec(a, p), ab = toVec(a, b);
     double u = dot(ap, ab) / norm_sq(ab);
     // Formula: c = a + u*ab
-    c = translate(a, scale(ab, u));                // Traslada el punto a al punto c
-    return dist(p, c);                             // Distancia euclidiana
+    c = translate(a, scale(ab, u));                 // Traslada el punto a al punto c
+    return dist(p, c);
 }
 
 // Retorna la distancia desde un punto p a un segmento de linea ab, definido por 2 puntos a & b (deben ser diferentes)
@@ -139,11 +137,11 @@ double distToLineSegment(point p, point a, point b, point &c) {
         c = point(a.x, a.y);
         return dist(p, a);
     }
-    if (u > 1.0) {                                 // Mas cercano al punto b
+    if (u > 1.0) {                                  // Mas cercano al punto b
         c = point(b.x, b.y);
         return dist(p, b);
     }
-    return distToLine(p, a, b, c);                 // Se usa distToLine
+    return distToLine(p, a, b, c);
 }
 
 // Retorna el producto cruz entre 2 vectores a & b
