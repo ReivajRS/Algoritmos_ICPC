@@ -8,6 +8,8 @@
     Time complexity: O(N^2 * M)
     Source: Kactl
 */
+#define sz(x)   (int) x.size()
+typedef vector<int> vi;
 
 pair<int, vi> hungarian(const vector<vi> &a) {
     if (a.empty()) return {0, {}};
