@@ -2,20 +2,20 @@
 ll mod(ll a, ll m) { return (a % m + m) % m; }
 
 ll modPow(ll b, ll p, ll m){                // O(log n)
-    b %= m;                                 // Primero se aplica modulo a la base
-    ll ans = 1;                             // Caso base p = 0
+    b %= m;
+    ll ans = 1;
     while(p){
-        if(p & 1) ans = mod(ans * b, m);    // (ans * b) % m, si p es impar
-        b = mod(b * b, m);                  // (b ^ 2) % m
-        p >>= 1;                            // p /= 2
+        if(p & 1) ans = mod(ans * b, m);
+        b = mod(b * b, m);
+        p >>= 1;
     }
-    return ans;                             // Retorna el resultado
+    return ans;
 }
 
-int extEuclid(int a, int b, int &x, int &y) {   // Pasa x e y por referencia
+int extEuclid(int a, int b, int &x, int &y) {
     int xx = y = 0;
     int yy = x = 1;
-    while (b) {                                 // Repetir hasta que b == 0
+    while (b) {
         int q = a/b;
         tie(a, b) = tuple(b, a%b);
         tie(x, xx) = tuple(xx, x-q*xx);
