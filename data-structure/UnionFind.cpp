@@ -17,9 +17,9 @@ class UnionFind {
         if (isSameSet(i, j)) return;
         int x = findSet(i), y = findSet(j);
         if (rank[x] > rank[y]) swap(x, y);          // Para mantener x mas pequenio que y
-        p[x] = y;                                   // Set x bajo y
+        p[x] = y;
         if (rank[x] == rank[y]) ++rank[y];          // Acelaracion por rango
-        setSize[y] += setSize[x];                   // Combina los tamanios de los sets en y
-        --numSets;                                  // Una union reduce el numSets
+        setSize[y] += setSize[x];
+        --numSets;
     }
 };
