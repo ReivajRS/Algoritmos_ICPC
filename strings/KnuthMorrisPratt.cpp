@@ -2,9 +2,9 @@
 typedef vector<int> vi;
 
 vi kmpPreprocess(string &P) {   // Preprocesamiento
-    int m = P.size();           // m = |P|
+    int m = P.size();
     vi b(m + 1);                // b = Back table
-    int i = 0, j = -1; b[0] = -1;                       // Valores iniciales
+    int i = 0, j = -1; b[0] = -1;
     while (i < m) {                                     // Preprocesamiento de P
         while ((j >= 0) && (P[i] != P[j])) j = b[j];    // Diferente, reset j
         ++i; ++j;                                       // Igual, avanzan ambos
@@ -17,8 +17,8 @@ vi kmpPreprocess(string &P) {   // Preprocesamiento
 int kmpSearch(string &T, string &P) {                   // Busqueda del patron en la cadena
     vi b = kmpPreprocess(P);
     int freq = 0;
-    int i = 0, j = 0;                                   // Valores iniciales
-    int n = T.size(), m = P.size();                     // n = |T|, m = |P|
+    int i = 0, j = 0;
+    int n = T.size(), m = P.size();
     while (i < n) {                                     // Buscar a traves de T
         while ((j >= 0) && (T[i] != P[j])) j = b[j];    // Diferente, reset j
         ++i; ++j;                                       // Igual, avanzan ambos
@@ -28,7 +28,7 @@ int kmpSearch(string &T, string &P) {                   // Busqueda del patron e
             j = b[j];                                   // Prepara j para la siguiente
         }
     }
-    return freq;    // Retorna el numero de coincidencias del patron en la cadena
+    return freq;
 }
 
 int main() {
