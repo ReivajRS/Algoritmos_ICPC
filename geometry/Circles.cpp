@@ -35,11 +35,11 @@ bool circle2PtsRad(point p1, point p2, double r, point &c) {
     return true;
 }
 
-// Retorna la longitud del arco formado por una circunferencia c y un angulo central de theta°
+// Retorna la longitud del arco formado por una circunferencia c y un angulo central de thetad
 double arcLength(double c, double theta) { return theta/360.0 * c; }
 
-// Retorna la longitud de la cuerda formada por un circulo de area A y un angulo central de theta°
+// Retorna la longitud de la cuerda formada por un circulo de area A y un angulo central de thetad
 double chordLength(double A, double theta) { return sqrt(A * (1 - cos(DEG_to_RAD(theta)))); }
 
-// Retorna el area de un sector de theta° del circulo
+// Retorna el area de un sector de thetad del circulo
 double sectorArea(double A, double theta) { return A/360.0 * A; }
