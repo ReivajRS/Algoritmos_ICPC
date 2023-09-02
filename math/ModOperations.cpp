@@ -34,3 +34,18 @@ int modInverse(int b, int m) {                  // Retorna b^(-1) (mod m)
 
 // Solo cuando m es primo
 int modInverse(int b, int m){ return modPow(b, m - 2, m) % m; }
+
+// Calcula a*b mod m, para cualquier 0 <= a, b <= c <= 7.2 * 10^18
+ull modmul(ull a, ull b, ull m) {
+    ll ret = a * b - m * ull(1.L / m * a * b);
+    return ret + m * (ret < 0) - m * (ret >= (ll)m);
+}
+
+// Precalculo de modulos inversos para toda x <= LIM. Se asume que LIM <= MOD y MOD es primo
+constexpr LIM = 1e5 + 5;
+ll inv[LIM + 1];
+void precalc_inv() {
+    inv[1] = 1;
+    for(int i = 2; i < LIM; i++)
+        inv[i] = MOD - (MOD / i) * inv[MOD % i] % MOD;
+}
