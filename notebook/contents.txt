@@ -7,10 +7,10 @@
 templates/Cases.cpp	Template C++
 
 [Math]
-math/ModPow_Inverse.cpp	Mod Pow-Inverse
+math/ModOperations.cpp	Mod operations
+math/Binomial_Coefficient.cpp	Binomial coefficients
 math/Primes.cpp	Primes
 math/Bits.cpp	Bit operations
-math/Binomial_Coefficient.cpp	Binomial coefficients
 math/Catalan.py	Catalan numbers
 math/Matrix.cpp	Matrix multiplication and exponentation
 math/Fractions.cpp	Fractions
@@ -86,3 +86,7 @@ dynamic-programming/DigitDP/SumDigitsInARange.cpp	Sum of digits in a range
 dynamic-programming/DigitDP/Enigma_Regional2017.cpp	Enigma regional 2017
 dynamic-programming/BitmaskDP/LittleElephantAndTShirts_CodeChef.cpp	Little elephant and T shirts - CodeChef
 dynamic-programming/BitmaskDP/O_Matching_AtCoder.cpp	O-Matching AtCoder
+
+[Miscellaneous]
+miscellaneous/Dates.cpp	Dates
+miscellaneous/TernarySearch.cpp	Ternary search
