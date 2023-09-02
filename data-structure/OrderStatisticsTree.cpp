@@ -1,40 +1,24 @@
-// Time complexity Insertion O(n log n), select-rank O(log n)
+/**
+ * Descripcion: es una variante del BST, que ademas soporta 2
+ * operaciones extra ademas de insercion, busqueda y eliminacion:
+ * Select(i) - find_by_order: encontrar el i-esimo elemento (0-indexado)
+ * del conjunto ordenado de los elementos, retorna un iterador.
+ * Rank(x) - order_of_key: encontrar el rango de x en el conjunto,
+ * es decir, retorna su indice en la lista ordenada de los elementos.
+ * Uso:
+ * oset<int> OST
+ * Funciona como un set, por lo que nativamente no soporta elementos
+ * repetidos. Si se necesitan repetidos, pero no eliminar valores,
+ * cambiar la funcion comparadora por less_equal<T>. Si se necesitan
+ * repetidos y tambien la eliminacion, agregar una dimension a T en
+ * en donde el ultimo parametro sea el diferenciador (por ejemplo,
+ * si estamos con enteros, utilizar un pair donde el second sea unico).
+ * Modificar el primer y tercer parametro (tipo y funcion comparadora),
+ * si se necesita un mapa, en lugar de null_type, escribir el tipo a mapear.
+ * Tiempo: O(log n)
+ */
 #include <bits/extc++.h>
-#include <bits/stdc++.h>
-
-using namespace std;
 using namespace __gnu_pbds;
 
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ost;
-/*(Posiciones indexadas en 0).
-Funciona igual que un set (todas las operaciones en O(log n)), con 2 operaciones extra:
-obj.find_by_order(k) - Retorna un iterador apuntando al elemento k-esimo mas grande
-obj.order_of_key(x) - Retorna un entero que indica la cantidad de elementos menores a x
-
-Modificar unicamente primer y tercer parametro, que corresponden a el tipo de dato
-del ost y a la funcion de comparacion de valores (less<T>, greater<T>, less_equal<T>
-o incluso una implementada por nosotros)
-
-Si queremos elementos repetidos, usar less_equal<T> (sin embargo, ya no servira la
-funcion de eliminacion).
-
-Si queremos elementos repetidos y necesitamos la eliminacion, utilizar una
-tecnica con pares, donde el second es un numero unico para cada valor.
-*/
-
-// Implementacion
-int main(){
-    int n = 9;
-    int A[] = {2, 4, 7, 10, 15, 23, 50, 65, 71};    // Arreglo de elementos
-    ost tree;
-    for (int i = 0; i < n; ++i) // O(n log n)
-        tree.insert(A[i]);
-    // O(log n) select
-    cout << *tree.find_by_order(0) << "\n";     // 1-smallest = 2
-    cout << *tree.find_by_order(n - 1) << "\n"; // 9-smallest/largest = 71
-    cout << *tree.find_by_order(4) << "\n";     // 5-smallest = 15
-    // O(log n) rank
-    cout << tree.order_of_key(2) << "\n";  // index 0 (rank 1)
-    cout << tree.order_of_key(71) << "\n"; // index 8 (rank 9)
-    cout << tree.order_of_key(15) << "\n"; // index 4 (rank 5)
-}
+template <class T>
+using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
