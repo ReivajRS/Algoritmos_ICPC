@@ -63,7 +63,7 @@ int insidePolygon(point pt, const vector<point> &P) {
         else
         sum -= angle(P[i], pt, P[i+1]);            // Vuelta a la derecha/cw
     }
-    return fabs(sum) > M_PI ? 1 : -1;              // 360°->dentro, 0°->fuera
+    return fabs(sum) > M_PI ? 1 : -1;              // 360d->dentro, 0d->fuera
 }
 
 // Retorna el punto de interseccion entre el segmento p-q y la linea A-B
