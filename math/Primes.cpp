@@ -17,6 +17,25 @@ void sieve(ll upperbound) { // Calcula la criba en O(N log(log N))
     }
 }
 
+// Criba con complejidad O(n)
+void linear_sieve(int N) {
+    vector<int> lp(N + 1);
+    vector<int> pr;
+
+    for (int i = 2; i <= N; ++i) {
+        if (lp[i] == 0) {
+            lp[i] = i;
+            pr.push_back(i);
+        }
+        for (int j = 0; i * pr[j] <= N; ++j) {
+            lp[i * pr[j]] = pr[j];
+            if (pr[j] == lp[i]) {
+                break;
+            }
+        }
+    }
+}
+
 bool isPrime(ll N) {    // Regresa si N es primo. Solo se garantiza su funcionamiento para N <= (ultimo primo en vll p)^2
     if (N < _sieve_size) return bs[N];
     for (int i = 0; i < (int)p.size() && p[i]*p[i] <= N; ++i)
@@ -94,4 +113,27 @@ ll EulerPhi(ll N) { // Regresa cuantos numeros menores a N son coprimos con N
     }
     if (N != 1) ans -= ans/N;
     return ans;
+}
+
+// Calcula la funcion de Mobius, para todo entero menor o igual a n. O(N)
+void preMobius(int N) {
+    memset(check, false, sizeof(check));
+    mu[1] = 1;
+    int tot = 0;
+    for(int i = 2; i < N; i++) {
+        if (!check[i]) {  // i es primo
+            prime[tot++] = i;
+            mu[i] = -1;
+        }
+        for(int j = 0; j < tot; j++){
+            if (i * prime[j] > N) break;
+            check[i * prime[j]] = true;
+            if (i % prime[j] == 0) {
+                mu[i * prime[j]] = 0;
+                break;
+            } else {
+                mu[i * prime[j]] = -mu[i];
+            }
+        }
+    }
 }
