@@ -13,6 +13,10 @@ math/Bits.cpp	Bit operations
 math/Binomial_Coefficient.cpp	Binomial coefficients
 math/Catalan.py	Catalan numbers
 math/Matrix.cpp	Matrix multiplication and exponentation
+math/Fractions.cpp	Fractions
+math/Simpson.cpp	Simpson's rule
+math/LinearDiophantine.cpp	Linear Diophantine
+math/FFT.cpp	FFT
 
 [Data structure]
 data-structure/UnionFind.cpp	Union find (DSU)
@@ -23,6 +27,10 @@ data-structure/FenwickTree.cpp	Fenwick tree
 data-structure/SegmentTree/SegmentTree.cpp	Segment tree
 data-structure/SegmentTree/SegmentTreeLazy.cpp	Segment tree with lazy propagation
 data-structure/SegmentTree/LazyRMQ.cpp	Segment tree RMQ with lazy propagation
+data-structure/SegmentTree/SparseSegmentTree.cpp	Sparse segment tree
+data-structure/SegmentTree/SparseLazySegmentTree.cpp	Sparse lazy segment tree
+data-structure/SegmentTree/PersistantLazyPropagation.cpp	Persistant lazy segment tree
+data-structure/SegmentTree/Iterative.cpp	Iterative segment tree
 data-structure/SegmentTree/ST_UF_Rollback.cpp	Segment tree of DSU with rollback
 data-structure/SparseTable.cpp	Sparse table
 data-structure/OrderStatisticsTree.cpp	Order statistics tree
@@ -37,25 +45,43 @@ graphs/TopologicalSort/TopologicalSort.cpp	Topological sort
 graphs/TopologicalSort/LexicographicTopologicalSort.cpp	Lexicographic topological sort
 graphs/MST/Prim.cpp	Prim
 graphs/MST/Kruskal.cpp	Kruskal
-graphs/Tarjan.cpp	Tarjan
-graphs/Kosaraju.cpp	Kosaraju
-graphs/BridgesAndArticulation.cpp	Bridges and articulation points
-graphs/2SAT.cpp	2 SAT
+graphs/Connectivity/Tarjan.cpp	Tarjan
+graphs/Connectivity/Kosaraju.cpp	Kosaraju
+graphs/Connectivity/BridgesAndArticulation.cpp	Bridges and articulation points
 graphs/LCA.cpp	Lowest common ancestor
-graphs/MaxFlow.cpp	Max-flow (Dinic)
-graphs/MinCostMaxFlow.cpp	Min-cost max-flow
-graphs/Kuhn.cpp	Kuhn BPM
+graphs/Flow/Dinic.cpp	Dinic
+graphs/Flow/MaxFlow.cpp	Max-flow (Dinic)
+graphs/Flow/MinCostMaxFlow.cpp	Min-cost max-flow
+graphs/Matching/Kuhn.cpp	Kuhn BPM
+graphs/Matching/HopcroftKarp.cpp	Hopcroft Karp
+graphs/Matching/Hungarian.cpp	Hungarian
+graphs/Matching/GeneralMatching.cpp	General matching
+graphs/Connectivity/2SAT.cpp	2 SAT
+graphs/FindCentroid.cpp	Find centroid
 
 [Strings]
 strings/KnuthMorrisPratt.cpp	Knuth Morris Pratt (KMP)
 strings/Hashing.cpp	Hashing
 strings/Trie.cpp	Trie
 strings/AhoCorasick.cpp	Aho-Corasick
+strings/Manacher.cpp	Manacher
+strings/SuffixArray.cpp	Suffix array
+
+[Geometry]
+geometry/PointsAndLines.cpp	Points and lines
+geometry/Triangles.cpp	Triangles
+geometry/Polygons.cpp	Polygons
+geometry/Circles.cpp	Circles
+geometry/3D_Point.cpp	3D point
 
 [Dynamic programming]
 dynamic-programming/Knapsack.cpp	Knapsack
 dynamic-programming/Knapsack_2.cpp	Knapsack 2
 dynamic-programming/LIS.cpp	Longest increasing subsequence
+dynamic-programming/2DSum.cpp	2D sum
+dynamic-programming/MaxSumRectangle.cpp	Max sum rectangle
+dynamic-programming/GameDP.cpp	Game DP
+dynamic-programming/RangeDP.cpp	Range DP
 dynamic-programming/DigitDP/SumDigitsInARange.cpp	Sum of digits in a range
 dynamic-programming/DigitDP/Enigma_Regional2017.cpp	Enigma regional 2017
 dynamic-programming/BitmaskDP/LittleElephantAndTShirts_CodeChef.cpp	Little elephant and T shirts - CodeChef
