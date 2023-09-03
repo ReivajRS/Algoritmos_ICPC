@@ -93,7 +93,7 @@ vector<point> cutPolygon(point A, point B, const vector<point> &Q) {
     return P;
 }
 
-// Nota: Para el Convex Hull, no se debe duplicar el primer nodo como el ultimo
+// Nota: Para el Convex Hull, no se debe duplicar el primer punto como el ultimo
 vector<point> CH_Graham(vector<point> &Pts) {       // O(n log n)
     vector<point> P(Pts);
     int n = (int)P.size();
