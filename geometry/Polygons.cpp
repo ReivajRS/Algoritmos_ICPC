@@ -54,7 +54,7 @@ int insidePolygon(point pt, const vector<point> &P) {
     bool on_polygon = false;
     for (int i = 0; i < n-1; ++i)                  // Sobre vertice/arista
         if (fabs(dist(P[i], pt) + dist(pt, P[i+1]) - dist(P[i], P[i+1])) < EPS)
-        on_polygon = true;
+            on_polygon = true;
     if (on_polygon) return 0;                      // pt esta sobre el poligono
     double sum = 0.0;                              // Primer = Ultimo punto
     for (int i = 0; i < n-1; ++i) {
@@ -93,6 +93,7 @@ vector<point> cutPolygon(point A, point B, const vector<point> &Q) {
     return P;
 }
 
+// Nota: Para el Convex Hull, no se debe duplicar el primer nodo como el ultimo
 vector<point> CH_Graham(vector<point> &Pts) {       // O(n log n)
     vector<point> P(Pts);
     int n = (int)P.size();
