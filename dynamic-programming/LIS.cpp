@@ -1,13 +1,13 @@
 // Time complexity O(n log k)
 typedef vector<int> vi;
 
-int n;  // tamanio del vector
-vi A;   // Vector original
+int n;
+vi A;
 vi p;   // Vector de predecesor
 
-void print_LIS(int i) {                          	// Rutina de backtracking
-    if (p[i] == -1) { printf("%d", A[i]); return; }	// Caso base
-    print_LIS(p[i]);                               	// backtrack
+void print_LIS(int i) {
+    if (p[i] == -1) { printf("%d", A[i]); return; }
+    print_LIS(p[i]);
     printf(" %d", A[i]);
 }
 
@@ -18,13 +18,13 @@ int main() {
     p.assign(n, -1);
 
     for (int i = 0; i < n; ++i) {                  	// O(n)
-        int pos = lower_bound(L.begin(), L.begin()+k, A[i]) - L.begin();	// Busqueda binaria
-        L[pos] = A[i];                             	// greedily overwrite this
-        L_id[pos] = i;                              // remember the index too
-        p[i] = pos ? L_id[pos-1] : -1;              // predecessor info
-        if (pos == k) {                             // can extend LIS?
-        k = pos+1;                                 	// k = longer LIS by +1
-        lis_end = i;                               	// keep best ending i
+        int pos = lower_bound(L.begin(), L.begin()+k, A[i]) - L.begin();
+        L[pos] = A[i];
+        L_id[pos] = i;
+        p[i] = pos ? L_id[pos-1] : -1;
+        if (pos == k) {
+            k = pos+1;
+            lis_end = i;
         }
     }
 
