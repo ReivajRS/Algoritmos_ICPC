@@ -6,7 +6,8 @@ ll _sieve_size;
 bitset<10000010> bs;
 vll p;
 
-void sieve(ll upperbound) { // Calcula la criba en O(N log(log N))
+// Criba con complejidad O(N log(log N))
+void sieve(ll upperbound) {
     _sieve_size = upperbound+1;
     bs.set();
     bs[0] = bs[1] = 0;
@@ -20,16 +21,15 @@ void sieve(ll upperbound) { // Calcula la criba en O(N log(log N))
 // Criba con complejidad O(n)
 void linear_sieve(int N) {
     vector<int> lp(N + 1);
-    vector<int> pr;
 
     for (int i = 2; i <= N; ++i) {
         if (lp[i] == 0) {
             lp[i] = i;
-            pr.push_back(i);
+            p.push_back(i);
         }
-        for (int j = 0; i * pr[j] <= N; ++j) {
-            lp[i * pr[j]] = pr[j];
-            if (pr[j] == lp[i]) {
+        for (int j = 0; i * p[j] <= N; ++j) {
+            lp[i * p[j]] = p[j];
+            if (p[j] == lp[i]) {
                 break;
             }
         }
